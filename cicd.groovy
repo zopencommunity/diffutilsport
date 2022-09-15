@@ -10,6 +10,6 @@ node('linux')
         }
 
         stage('Build') {
-                build job: 'Port-Pipeline', parameters: [string(name: 'PORT_GITHUB_REPO', value: 'https://github.com/ZOSOpenTools/diffutils.git'), string(name: 'PORT_DESCRIPTION', value: 'GNU Diffutils is a package of several programs related to finding differences between files.' )]
+                build job: 'Port-Pipeline', parameters: [string(name: 'PORT_GITHUB_REPO', value: 'https://github.com/ZOSOpenTools/diffutilsport.git'), string(name: 'PORT_DESCRIPTION', value: 'GNU Diffutils is a package of several programs related to finding differences between files.' )]
         }
 }
