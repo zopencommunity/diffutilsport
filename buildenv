@@ -16,23 +16,14 @@ zopen_check_results()
 
 zopen_check_results()
 {
-#!/bin/sh
-#
-# Results should be 0 errors, and no more than 10 failures
-# FAIL:	 10
-# ERROR: 0
-#
-set -x
 chk="$2_check.log"
 
-failures=$(egrep '^# FAIL:' ${chk} | tail -1 | awk ' { print $3; }')
-if [ ${failures} -gt 10 ]; then
-  return 2
-fi
-errors=$(egrep '^# ERROR:' ${chk} | tail -1 | awk ' { print $3; }')
-if [ ${errors} -gt 0 ]; then
-  return 2
-fi
+failures=$(egrep '^# FAIL:|^# ERROR:|^# XFAIL' ${chk} | tail -1 | awk ' { print $3; }')
+totalTests=$(egrep '^# ERROR:|^# PASS:|^# XFAIL:|^# FAIL:|^# XPASS:' ${chk} | tail -1 | awk ' { print $3; }')
 
-return 1
+cat <<ZZ
+actualFailures:$failures
+totalTests:$totalTests
+expectedFailures:0
+ZZ
 }
