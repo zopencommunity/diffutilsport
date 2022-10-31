@@ -1,0 +1,13 @@
+diff --git a/src/system.h b/src/system.h
+index f921a50..6aa5373 100644
+--- a/src/system.h
++++ b/src/system.h
+@@ -70,7 +70,7 @@
+ 
+ #include <string.h>
+ #if ! HAVE_STRCASECOLL
+-# if HAVE_STRICOLL || defined stricoll
++# if HAVE_STRICOLL || defined stricoll && !defined(__MVS__)
+ #  define strcasecoll(a, b) stricoll (a, b)
+ # else
+ #  define strcasecoll(a, b) strcasecmp (a, b) /* best we can do */
