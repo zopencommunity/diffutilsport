@@ -1,0 +1,13 @@
+diff --git a/lib/config.hin b/lib/config.hin
+index 00bef80..2dbf9d3 100644
+--- a/lib/config.hin
++++ b/lib/config.hin
+@@ -1905,7 +1905,7 @@
+ #endif
+ 
+ 
+-#if _GL_HAS_ATTRIBUTE (alloc_size)
++#if _GL_HAS_ATTRIBUTE (alloc_size) && !defined(__MVS__)
+ # define _GL_ATTRIBUTE_ALLOC_SIZE(args) __attribute__ ((__alloc_size__ args))
+ #else
+ # define _GL_ATTRIBUTE_ALLOC_SIZE(args)

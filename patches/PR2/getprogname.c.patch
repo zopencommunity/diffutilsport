@@ -1,0 +1,13 @@
+diff --git a/lib/getprogname.c b/lib/getprogname.c
+index 3f54800..aae01c8 100644
+--- a/lib/getprogname.c
++++ b/lib/getprogname.c
+@@ -193,7 +193,7 @@ getprogname (void)
+   return p;
+ # elif __MVS__                                              /* z/OS */
+   /* https://www.ibm.com/support/knowledgecenter/SSLTBW_2.1.0/com.ibm.zos.v2r1.bpxbd00/rtwgetp.htm */
+-  static char *p = "?";
++  static const char *p = "?";
+   static int first = 1;
+   if (first)
+     {
