@@ -27,6 +27,6 @@ actualFailures=$(echo "${FAIL}+${XFAIL}+${ERROR}" | bc)
 cat <<ZZ
 actualFailures:$actualFailures
 totalTests:$totalTests
-expectedFailures:0
+expectedFailures:12
 ZZ
 }
