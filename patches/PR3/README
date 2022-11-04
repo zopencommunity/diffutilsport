@@ -1,0 +1,1 @@
+The stdlib.h patch adds a remapping (via pragma) of the unsetenv runtime library function to the gnu version of stdlib.h in the same manner that our own xlclag version of stdlib.h does it.
