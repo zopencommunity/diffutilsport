@@ -1,0 +1,30 @@
+diff --git a/build-aux/depcomp b/build-aux/depcomp
+index 715e343..8caba26 100755
+--- a/build-aux/depcomp
++++ b/build-aux/depcomp
+@@ -164,9 +164,10 @@ if test "$depmode" = msvc7msys; then
+   depmode=msvc7
+ fi
+ 
++nowp=false
+ if test "$depmode" = xlc; then
+-  # IBM C/C++ Compilers xlc/xlC can output gcc-like dependency information.
+-  gccflag=-qmakedep=gcc,-MF
++  nowp=true
++  gccflag="-MMD "
+   depmode=gcc
+ fi
+ 
+@@ -214,7 +215,11 @@ gcc)
+   if test -z "$gccflag"; then
+     gccflag=-MD,
+   fi
+-  "$@" -Wp,"$gccflag$tmpdepfile"
++  if $nowp; then
++    "$@" "$gccflag$tmpdepfile"
++  else
++    "$@" -Wp,"$gccflag$tmpdepfile"
++  fi
+   stat=$?
+   if test $stat -ne 0; then
+     rm -f "$tmpdepfile"
