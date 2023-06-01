@@ -1,11 +1,12 @@
 export ZOPEN_TYPE="TARBALL"
 
 export ZOPEN_TARBALL_URL="https://gnu.askapache.com/diffutils/diffutils-3.8.tar.xz"
-export ZOPEN_TARBALL_DEPS="curl xz make zoslib"
+export ZOPEN_TARBALL_DEPS="curl xz make zoslib bash coreutils"
 
-export ZOPEN_EXTRA_CFLAGS="-Wno-unused-const-variable -Wno-tautological-constant-out-of-range-compare -Wno-missing-prototypes -Wno-tautological-compare -Wno-implicit-function-declaration"
+export ZOPEN_EXTRA_CFLAGS="-Wno-unused-const-variable -Wno-tautological-constant-out-of-range-compare -Wno-missing-prototypes -Wno-tautological-compare -Wno-implicit-function-declaration -fno-builtin"
 export ZOPEN_BOOTSTRAP=skip
-
+export ZOPEN_CHECK_OPTS="-i check"
+export ZOPEN_COMP="clang"
 zopen_check_results()
 {
 chk="$1/$2_check.log"
