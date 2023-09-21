@@ -28,6 +28,7 @@ expectedFailures:13
 ZZ
 }
 
+
 zopen_get_version()
 {
   ./src/diff --version | head -1 | awk '{print $4; }'
