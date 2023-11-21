@@ -8,6 +8,17 @@ export ZOPEN_EXTRA_CFLAGS="-Wno-unused-const-variable -Wno-tautological-constant
 export ZOPEN_BOOTSTRAP=skip
 export ZOPEN_CHECK_OPTS="-i check"
 export ZOPEN_COMP="clang"
+
+#============================================================================
+#Testsuite summary for GNU diffutils 3.10
+#============================================================================
+# TOTAL: 215
+# PASS:  168
+# SKIP:  34
+# XFAIL: 0
+# FAIL:  13
+# XPASS: 0
+# ERROR: 0
 zopen_check_results()
 {
 chk="$1/$2_check.log"
