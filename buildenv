@@ -49,6 +49,14 @@ zopen_post_install()
   ln -s ../bin/gcmp $ZOPEN_INSTALL_DIR/altbin/cmp
 }
 
+zopen_install_caveats()
+{
+cat <<ZZ
+GNU diff has been installed with the prefix "g" under bin/diff to avoid collision with z/OS /bin/diff.
+If you prefer to use GNU diff as diff, source zopen-config with the option --override-zos-tools.
+Or add \$ZOPEN_ROOTFS/usr/local/altbin to your \$PATH.
+ZZ
+}
 
 zopen_get_version()
 {
