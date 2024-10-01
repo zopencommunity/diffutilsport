@@ -47,14 +47,21 @@ zopen_post_install()
   mkdir $ZOPEN_INSTALL_DIR/altbin
   ln -s ../bin/gdiff $ZOPEN_INSTALL_DIR/altbin/diff
   ln -s ../bin/gcmp $ZOPEN_INSTALL_DIR/altbin/cmp
+
+  mkdir -p $ZOPEN_INSTALL_DIR/share/altman/man1
+  mv $ZOPEN_INSTALL_DIR/share/man/man1/diff.1 $ZOPEN_INSTALL_DIR/share/man/man1/gdiff.1
+  ln -s ../../man/man1/gdiff.1 $ZOPEN_INSTALL_DIR/share/altman/man1/diff.1
+  mv $ZOPEN_INSTALL_DIR/share/man/man1/cmp.1 $ZOPEN_INSTALL_DIR/share/man/man1/gcmp.1
+  ln -s ../../man/man1/gcmp.1 $ZOPEN_INSTALL_DIR/share/altman/man1/cmp.1
 }
 
 zopen_install_caveats()
 {
 cat <<ZZ
-GNU diff has been installed with the prefix "g" under bin/diff to avoid collision with z/OS /bin/diff.
-If you prefer to use GNU diff as diff, source zopen-config with the option --override-zos-tools.
-Or add \$ZOPEN_ROOTFS/usr/local/altbin to your \$PATH.
+GNU diff has been installed as gdiff under the bin/ dir to avoid collision with z/OS /bin/diff.
+The conflicting manpages have been installed under the share/altman dir. You can use zotman to view
+the manpages as such: zotman gdiff
+If you prefer to use the GNU diff as diff, source zopen-config with the option --override-zos-tools.
 ZZ
 }
 
