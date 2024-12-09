@@ -1,0 +1,32 @@
+diff --git a/src/cmp.c b/src/cmp.c
+index 4c6dc74..9f88484 100644
+--- a/src/cmp.c
++++ b/src/cmp.c
+@@ -317,6 +317,13 @@ main (int argc, char **argv)
+           stat_buf[f].st_blksize = 8 * 1024;
+ #endif
+         }
++
++#ifdef __MVS__
++      if (S_ISFIFO(stat_buf[f].st_mode) && stat_buf[f].st_blksize < 0) 
++        {
++          stat_buf[f].st_blksize = 8 * 1024;
++        }
++#endif
+     }
+ 
+   /* If the files are links to the same inode and have the same file position,
+@@ -374,11 +381,13 @@ main (int argc, char **argv)
+ 
+   exit_status = cmp ();
+ 
++
+   for (int f = 0; f < 2; f++)
+     if (close (file_desc[f]) != 0)
+       die (EXIT_TROUBLE, errno, "%s", file[f]);
+   if (exit_status != EXIT_SUCCESS && comparison_type < type_no_stdout)
+     check_stdout ();
++
+   exit (exit_status);
+   return exit_status;
+ }
