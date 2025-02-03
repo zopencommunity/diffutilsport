@@ -1,5 +1,5 @@
 # bump: diffutils-version /DIFFUTILS_VERSION="(.*)"/ https://gnu.askapache.com/diffutils/|re:/href="diffutils-([\d.]+).tar.xz"/$1/|semver:*
-DIFFUTILS_VERSION="3.10"
+DIFFUTILS_VERSION="3.11"
 export ZOPEN_BUILD_LINE="STABLE"
 export ZOPEN_STABLE_URL="https://gnu.askapache.com/diffutils/diffutils-${DIFFUTILS_VERSION}.tar.xz"
 export ZOPEN_CATEGORIES="utilities"
