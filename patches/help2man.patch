@@ -1,10 +1,10 @@
 diff --git a/man/help2man b/man/help2man
-index 7f83481..16d62ec 100755
+index b452085..7d5f9c9 100755
 --- a/man/help2man
 +++ b/man/help2man
 @@ -1,4 +1,4 @@
--#!/usr/bin/perl -w
+-#!/usr/bin/env perl
 +#!/bin/env perl -w
  
  # Generate a short man page from --help and --version output.
- # Copyright (C) 1997-2005, 2009-2011, 2013, 2015-2023 Free Software Foundation,
+ # Copyright (C) 1997-2005, 2009-2017, 2020-2021, 2025 Free Software Foundation,
