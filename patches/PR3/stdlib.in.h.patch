@@ -1,11 +1,11 @@
 diff --git a/lib/stdlib.in.h b/lib/stdlib.in.h
-index 652062d..c728caf 100644
+index bd82086..72f521e 100644
 --- a/lib/stdlib.in.h
 +++ b/lib/stdlib.in.h
-@@ -1401,6 +1401,20 @@ _GL_WARN_ON_USE (unlockpt, "unlockpt is not portable - "
+@@ -233,6 +233,20 @@ _GL_INLINE_HEADER_BEGIN
  #  endif
- _GL_FUNCDECL_RPL (unsetenv, int, (const char *name) _GL_ARG_NONNULL ((1)));
- _GL_CXXALIAS_RPL (unsetenv, int, (const char *name));
+ _GL_FUNCDECL_RPL (_Exit, _Noreturn void, (int status), );
+ _GL_CXXALIAS_RPL (_Exit, void, (int status));
 +#if defined(__MVS__)
 +  #ifndef __EDC_LE
 +    #define __EDC_LE 0x10000000
@@ -21,5 +21,5 @@ index 652062d..c728caf 100644
 +  #endif
 +#endif
  # else
- #  if !@HAVE_DECL_UNSETENV@
- _GL_FUNCDECL_SYS (unsetenv, int, (const char *name) _GL_ARG_NONNULL ((1)));
+ #  if !@HAVE__EXIT@
+ _GL_FUNCDECL_SYS (_Exit, _Noreturn void, (int status), );

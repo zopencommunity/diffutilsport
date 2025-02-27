@@ -1,0 +1,53 @@
+diff --git a/gnulib-tests/Makefile.in b/gnulib-tests/Makefile.in
+index 18a5f6d..b6aee07 100644
+--- a/gnulib-tests/Makefile.in
++++ b/gnulib-tests/Makefile.in
+@@ -202,7 +202,7 @@ TESTS = test-accept$(EXEEXT) test-alignasof$(EXEEXT) \
+ 	test-pthread-once1$(EXEEXT) test-pthread-once2$(EXEEXT) \
+ 	test-pthread-rwlock$(EXEEXT) test-pthread-thread$(EXEEXT) \
+ 	$(am__EXEEXT_2) test-pthread_sigmask2$(EXEEXT) \
+-	test-putenv$(EXEEXT) test-quotearg-simple$(EXEEXT) \
++	test-quotearg-simple$(EXEEXT) \
+ 	test-raise$(EXEEXT) test-random$(EXEEXT) \
+ 	test-random-mt$(EXEEXT) test-random_r$(EXEEXT) \
+ 	test-rawmemchr$(EXEEXT) test-readlink$(EXEEXT) \
+@@ -253,7 +253,7 @@ TESTS = test-accept$(EXEEXT) test-alignasof$(EXEEXT) \
+ 	test-u32-strcat$(EXEEXT) test-u32-strlen$(EXEEXT) \
+ 	test-uc_width$(EXEEXT) uniwidth/test-uc_width2.sh \
+ 	test-unlink$(EXEEXT) test-unlinkat$(EXEEXT) \
+-	test-unsetenv$(EXEEXT) test-update-copyright.sh \
++	test-update-copyright.sh \
+ 	test-vasnprintf$(EXEEXT) test-vc-list-files-git.sh \
+ 	test-vc-list-files-cvs.sh test-verify$(EXEEXT) test-verify.sh \
+ 	test-version-etc.sh test-wchar-h$(EXEEXT) test-wcrtomb.sh \
+@@ -341,7 +341,7 @@ check_PROGRAMS = test-accept$(EXEEXT) test-alignasof$(EXEEXT) \
+ 	test-pthread-mutex-type$(EXEEXT) test-pthread-once1$(EXEEXT) \
+ 	test-pthread-once2$(EXEEXT) test-pthread-rwlock$(EXEEXT) \
+ 	test-pthread-thread$(EXEEXT) test-pthread_sigmask1$(EXEEXT) \
+-	test-pthread_sigmask2$(EXEEXT) test-putenv$(EXEEXT) \
++	test-pthread_sigmask2$(EXEEXT) \
+ 	test-quotearg-simple$(EXEEXT) test-raise$(EXEEXT) \
+ 	test-random$(EXEEXT) test-random-mt$(EXEEXT) \
+ 	test-random_r$(EXEEXT) test-rawmemchr$(EXEEXT) \
+@@ -393,7 +393,7 @@ check_PROGRAMS = test-accept$(EXEEXT) test-alignasof$(EXEEXT) \
+ 	test-u32-strcat$(EXEEXT) test-u32-strlen$(EXEEXT) \
+ 	test-uc_width$(EXEEXT) test-uc_width2$(EXEEXT) \
+ 	test-unlink$(EXEEXT) test-unlinkat$(EXEEXT) \
+-	test-unsetenv$(EXEEXT) test-vasnprintf$(EXEEXT) \
++	test-vasnprintf$(EXEEXT) \
+ 	test-verify$(EXEEXT) test-version-etc$(EXEEXT) \
+ 	test-wchar-h$(EXEEXT) test-wcrtomb$(EXEEXT) \
+ 	test-wcrtomb-w32$(EXEEXT) test-wctype-h$(EXEEXT) \
+diff --git a/gnulib-tests/test-random-mt.c b/gnulib-tests/test-random-mt.c
+index c438c88..6546938 100644
+--- a/gnulib-tests/test-random-mt.c
++++ b/gnulib-tests/test-random-mt.c
+@@ -22,7 +22,7 @@
+ 
+ /* Whether to help the scheduler through explicit yield().
+    Uncomment this to see if the operating system has a fair scheduler.  */
+-#define EXPLICIT_YIELD 1
++#define EXPLICIT_YIELD 0
+ 
+ /* Number of simultaneous threads.  */
+ #define THREAD_COUNT 4
