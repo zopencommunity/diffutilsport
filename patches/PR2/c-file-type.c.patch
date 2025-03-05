@@ -1,0 +1,22 @@
+diff --git a/lib/c-file-type.c b/lib/c-file-type.c
+index e8e9f5a..84df8a2 100644
+--- a/lib/c-file-type.c
++++ b/lib/c-file-type.c
+@@ -47,7 +47,7 @@ c_file_type (struct stat const *st)
+ 
+   /* Do the S_TYPEIS* macros next, as they may be implemented in terms
+      of S_ISNAM, and we want the more-specialized interpretation.  */
+-
++#ifndef __MVS__
+   if (S_TYPEISMQ (st))
+     return N_("message queue");
+ 
+@@ -59,7 +59,7 @@ c_file_type (struct stat const *st)
+ 
+   if (S_TYPEISTMO (st))
+     return N_("typed memory object");
+-
++#endif
+   /* The remaining are in alphabetical order.  */
+ 
+   if (S_ISBLK (st->st_mode))
